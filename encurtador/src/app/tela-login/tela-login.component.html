@@ -1,0 +1,32 @@
+<div class="body-container">
+
+  <div class="image-container">
+    <p>colocar imagem aqui</p>
+  </div>
+
+  <h1>Encurtador de Link</h1>
+
+  <div class="login-container">
+
+    <form #fm="ngForm">
+      <br>
+      <h3>Usuário</h3>
+      <input id="usuario_login" name="usuario_login" type="text" #log="ngModel" [(ngModel)]="usuario.login"
+        usuario_login required>
+      <br>
+      <span *ngIf="(log.dirty || log.touched) && log.invalid" class="erro">
+        Digite o usuário!</span>
+
+      <h3>Senha</h3>
+      <input id="usuario_senha" name="usuario_senha" type="password" #se="ngModel" [(ngModel)]="usuario.senha"
+        usuario_senha required>
+      <br>
+      <span *ngIf="(log.dirty || se.touched) && se.invalid" class="erro">
+        Digite a senha!</span>
+      <span>{{this.resposta.msg}}</span>
+      <br>
+      <button type="submit" [disabled]="fm.form.invalid" (click)='autenticarUsuario()'> Acessar </button>
+    </form>
+
+  </div>
+</div>

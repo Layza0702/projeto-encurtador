@@ -1,0 +1,43 @@
+<div class="body-container">
+  
+  <nav class="logout-conteiner">
+    <button type="submit" (click)='logout()'> Sair </button>
+  </nav>
+
+  <h1>Bem-vindo ao Encurtador de Link,</h1>
+  <p>{{this.usuario.login}}</p>
+
+  <div class="encurtar-container">
+
+    <form #for="ngForm">
+      <br>
+      <h3>Digite a Url a ser encurtada</h3>
+      <input id="url_original" name="url_original" type="text" #log="ngModel" [(ngModel)]="url.url_original"
+        url_original required pattern="^[a-zA-Z0-9-_]+[:./\\]+([a-zA-Z0-9 -_./:=&'?%+@#$!])+$">
+      <br>
+      <span *ngIf="(log.dirty || log.touched) && log.invalid" class="erro">
+        Url inválida. Digite a URL que deseja encurtar</span>
+
+      <br>
+      <button type="submit" [disabled]="for.form.invalid" (click)='encurtarUrl()'> Gerar URL </button>
+    </form>
+
+    <h1 *ngIf="(this.aparecer)">Url gerada: </h1>
+    <h1>{{url.url_encurtada}}</h1>
+    <br><br>
+    <p>Urls já encurtadas</p>
+    <table id="customers">
+      <tr>
+        <th>Data</th>
+        <th>Url Original</th>
+        <th>Url Encurtada</th>
+      </tr>
+      <tr *ngFor="let u of listaUrl">
+        <td>{{u.url_data}}</td>
+        <td>{{u.url_original}}</td>
+        <td>{{u.url_encurtada}}</td>
+      </tr>
+
+    </table>
+  </div>
+</div>
