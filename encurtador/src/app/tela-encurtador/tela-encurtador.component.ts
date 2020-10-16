@@ -1,5 +1,4 @@
 import { User } from './../tela-login/user';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Resposta } from './resposta';
 import { Url } from './url';
 import { Component, OnInit } from '@angular/core';
@@ -39,8 +38,8 @@ export class TelaEncurtadorComponent implements OnInit {
     this.service.encurtarUrl(this.url.url_original).subscribe(res => {
       this.url.url_encurtada = res.shortUrl;
       this.aparecer = true;
+      this.adicionarUrl();
     });
-    this.adicionarUrl();
   }
 
   adicionarUrl(): void {
