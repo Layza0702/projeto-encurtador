@@ -1,5 +1,5 @@
 <div class="body-container">
-  
+
   <nav class="logout-conteiner">
     <button type="submit" (click)='logout()'> Sair </button>
   </nav>
@@ -22,8 +22,9 @@
       <button type="submit" [disabled]="for.form.invalid" (click)='encurtarUrl()'> Gerar URL </button>
     </form>
 
-    <h1 *ngIf="(this.aparecer)">Url gerada: </h1>
-    <h1>{{url.url_encurtada}}</h1>
+    <h1 *ngIf="(this.aparecer)">Url gerada:
+      <h1>{{url.url_encurtada}}</h1>
+    </h1>
     <br><br>
     <p>Urls já encurtadas</p>
     <table id="customers">
