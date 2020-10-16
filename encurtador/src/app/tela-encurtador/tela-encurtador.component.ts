@@ -28,6 +28,10 @@ export class TelaEncurtadorComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.obterTodasUrls();
+  }
+
+  obterTodasUrls(): void {
     this.service.obterTodasUrls(this.usuario.id).subscribe((res: Url[]) => { this.listaUrl = res; });
   }
 
@@ -42,12 +46,7 @@ export class TelaEncurtadorComponent implements OnInit {
   adicionarUrl(): void {
     this.service.adicionarUrl(this.url).subscribe(r => {
       this.resposta = r;
-
-      this.service.obterTodasUrls(this.usuario.id).subscribe(
-        res => {
-          this.listaUrl = res;
-        }
-      );
+      this.obterTodasUrls();
     });
   }
 
