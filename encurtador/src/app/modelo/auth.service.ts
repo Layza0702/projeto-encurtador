@@ -16,7 +16,7 @@ export class AuthService implements CanActivate {
 
     const usuario = JSON.parse(localStorage.getItem('encurtador__usuario'));
 
-    if (usuario && usuario.id && usuario.senha) {
+    if (usuario && usuario.id && usuario.login && usuario.senha) {
       return true;
     } else {
       this.router.navigate(['/login']);

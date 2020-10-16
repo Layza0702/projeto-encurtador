@@ -27,6 +27,7 @@ export class TelaLoginComponent implements OnInit {
           this.router.navigate(['encurtador']);
           const data = {
             id: usuario.id,
+            login: usuario.login,
             senha: usuario.senha
           };
           localStorage.setItem('encurtador__usuario', JSON.stringify(data))
