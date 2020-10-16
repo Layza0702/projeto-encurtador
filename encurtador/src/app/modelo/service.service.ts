@@ -1,4 +1,3 @@
-import { Observable } from 'node_modules/rxjs';
 import { Resposta } from './../tela-encurtador/resposta';
 import { Url } from './../tela-encurtador/url';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
